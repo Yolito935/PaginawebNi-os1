@@ -1,7 +1,11 @@
 {
   "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^5.2.1",
     "node": "^24.12.0",
     "node.js": "^0.0.1-security",
+    "nodemailer": "^7.0.12",
+    "pg": "^8.16.3",
     "server.js": "^1.0.0"
   }
 }
