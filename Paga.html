@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device=width, initial-scale=1.0">
+    <link rel="stylesheet" href="Paga.css">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+
+
+
+
+
+
+</head>
+<body>
+    
+
+        <div class="Cuadrado-Arriba">
+
+                <p Class="Inicio">Inicio</p>
+
+                <p class="Sobre-Nosotros">Sobre Nosotros</p>
+
+                <p class="Precios">Precios</p>
+
+                
+
+
+
+                <button id="theme-toggle" class="pill-button">
+                    
+                <img id="theme-icon"  alt="Icono" class="icon">
+                 <span id="theme-text" >Modo Oscuro</span>
+                </button>
+
+                
+
+
+
+
+
+                
+                    <label class="switch">
+                <input type="checkbox" id="toggle-mode">
+                    <span class="slider"></span>
+                </label>
+
+
+
+
+
+        <script>
+const btn = document.getElementById('theme-toggle');
+const themeText = document.getElementById('theme-text');
+const toggleMode = document.getElementById('toggle-mode'); // El círculo
+const themeIcon = document.getElementById('theme-icon'); // Seleccionamos el icono
+function toggler() {
+  document.body.classList.toggle('dark-mode');
+  
+  if (document.body.classList.contains('dark-mode')) {
+    themeText.innerText = "Modo Obscuro" ;
+    themeIcon.src = "https://cdn-icons-png.flaticon.com/512/702/702471.png"; // Ponemos la luna para que el usuario pueda "ir a lo oscuro"
+    if(toggleMode) toggleMode.checked = true;
+  } else {
+    themeText.innerText = "Modo Claro" ;
+    themeIcon.src = "dom.png"; // Ponemos el sol para que el usuario pueda "volver a la luz"
+    if(toggleMode) toggleMode.checked = false;
+  }
+}
+
+// Escuchamos a ambos botones
+btn.addEventListener('click', toggler);
+if(toggleMode) {
+  toggleMode.addEventListener('change', toggler);
+}
+</script>
+                        
+                 
+        </div>
+
+
+
+
+        <div class="background-decoration">
+            <div class="animal animal-lion">🦁</div>
+            <div class="animal animal-elephant">🐘</div>
+            <div class="animal animal-giraffe">🦒</div>
+            <div class="animal animal-bear">🐻</div>
+            <div class="animal animal-rabbit">🐰</div>
+            <div class="letter letter-a">A</div>
+            <div class="letter letter-b">B</div>
+            <div class="letter letter-c">C</div>
+            <div class="book">📖</div>
+            <div class="pencil">✏️</div>
+
+
+            
+        
+
+
+
+
+        </div>
+
+        
+
+             <p class="Titulo">Aprende Jugar <br> Adivinar palabras <p>
+          
+
+            <p class="Titulo2">Descubre La magia De nuestros<p>
+                
+             
+                
+            <button class="Boton-Pagar" onclick="window.location.href='Datosypago.html'">PAGAR</button>
+            <button class="Boton-Demo">Demo</button>        
+            
+            
+            <p class="Texto-Estrella" >Lo que dicen otros usuarios<br>⭐⭐⭐⭐⭐</p>
+
+            
+        
+            </div>
+
+
+            <section class="card">
+            <div class="icon-box">
+                <img src="video-marketing.png" alt="Juegos">
+            </div>
+            <h3>Juegos Exclusivos</h3>
+            <p>ofertas personalizadas</p>
+        </section>
+
+
+        <section class="card">
+            <div class="icon-box">
+                <img src="escritorio.png" alt="Progreso">
+            </div>
+            <h3>Seguimiento de Progreso</h3>
+            <p>panel de control</p>
+        </section>
+
+        <section class="card">
+            <div class="icon-box">
+                <img src="https://cdn-icons-png.flaticon.com/512/3011/3011270.png" alt="Sin Anuncios">
+            </div>
+            <h3>Sin Anuncios</h3>
+            <p>experiencia segura</p>
+        </section>
+
+
+        <footer>
+        <a href="#" class="video-demo" style="white-space: nowrap;" > Video Demo</a>
+      </footer>
+
+     
+
+
+
+
+</body>
+</html>
+
+
+
+
+
+
+

@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrarse - Mundo de Lectura</title>
+    <link rel="stylesheet" href="Register.css">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <!-- Elementos de fondo animados -->
+    <div class="background-decoration">
+        <div class="animal animal-lion">🦁</div>
+        <div class="animal animal-elephant">🐘</div>
+        <div class="animal animal-giraffe">🦒</div>
+        <div class="animal animal-bear">🐻</div>
+        <div class="animal animal-rabbit">🐰</div>
+        <div class="letter letter-a">A</div>
+        <div class="letter letter-b">B</div>
+        <div class="letter letter-c">C</div>
+        <div class="book">📖</div>
+        <div class="pencil">✏️</div>
+    </div>
+
+    <div class="register-container">
+        <div class="register-card">
+            <div class="register-header">
+                <div class="logo-placeholder">
+                    <span class="logo-icon">📚</span>
+                </div>
+                <h2 class="register-title">¡Únete a Nuestro Mundo!</h2>
+                <p class="register-subtitle">Crea tu cuenta para comenzar a aprender</p>
+            </div>
+
+            <form class="register-form" id="registerForm">
+                <div class="form-row">
+                    <div class="input-group">
+                        <label for="firstName" class="input-label">Nombre</label>
+                        <div class="input-wrapper">
+                            <span class="input-icon">👤</span>
+                            <input type="text" id="firstName" name="firstName" placeholder="Tu nombre" required>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="lastName" class="input-label">Apellido</label>
+                        <div class="input-wrapper">
+                            <span class="input-icon">👨‍👩‍👧</span>
+                            <input type="text" id="lastName" name="lastName" placeholder="Tu apellido" required>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label for="email" class="input-label">Correo Electrónico</label>
+                    <div class="input-wrapper">
+                        <span class="input-icon">📧</span>
+                        <input type="email" id="email" name="email" placeholder="ejemplo@email.com" required
+                            autocomplete="email">
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label for="password" class="input-label">Contraseña</label>
+                    <div class="input-wrapper">
+                        <span class="input-icon">🔒</span>
+                        <input type="password" id="password" name="password" placeholder="••••••••" required
+                            minlength="6">
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label for="confirmPassword" class="input-label">Confirmar Contraseña</label>
+                    <div class="input-wrapper">
+                        <span class="input-icon">✅</span>
+                        <input type="password" id="confirmPassword" name="confirmPassword" placeholder="••••••••"
+                            required minlength="6">
+                    </div>
+                </div>
+
+                <button type="submit" class="register-button">
+                    <span class="button-text">Crear Cuenta</span>
+                    <span class="button-icon">✨</span>
+                </button>
+
+                <div class="divider">
+                    <span>o</span>
+                </div>
+
+
+                <button id="google-btn" type="button" class="google-button"><img src="google.png" class="Google-icon">
+                    Crear cuenta con google </button>
+
+                <div id="g_id_onload"
+                    data-client_id="613829731258-3fcu3mccadet82f5kos22efvdu7aqp0m.apps.googleusercontent.com"
+                    data-callback="handleCredentialResponse">
+                </div>
+
+                <p id="mensaje"></p>
+
+                <script src="https://accounts.google.com/gsi/client" async defer>
+
+                </script>
+
+                <script>
+                    const client_id = "613829731258-3fcu3mccadet82f5kos22efvdu7aqp0m.apps.googleusercontent.com";
+                    let googleClient;
+
+                    window.onload = () => {
+                        googleClient = google.accounts.oauth2.initTokenClient({
+                            client_id: client_id,
+                            scope: 'profile email',
+                            callback: handleCredentialResponse
+                        });
+                    };
+
+                    document.getElementById('google-btn').addEventListener('click', () => {
+                        googleClient.requestAccessToken();
+                    });
+
+                    function handleCredentialResponse(response) {
+                        if (response.error) {
+                            console.error("Error:", response.error);
+                            document.getElementById("mensaje").innerText = "Error al iniciar sesión";
+                            return;
+                        }
+
+                        const token = response.access_token;
+
+                        fetch('https://www.googleapis.com/oauth2/v2/userinfo', {
+                            headers: {
+                                Authorization: `Bearer ${token}`
+                            }
+                        })
+                            .then(res => res.json())
+                            .then(user => {
+                                console.log("Usuario:", user);
+
+                                // ✅ Envía los datos a tu backend
+                                fetch('https://tu-backend.onrender.com/register', {
+                                    method: 'POST',
+                                    headers: { 'Content-Type': 'application/json' },
+                                    body: JSON.stringify({
+                                        nombre: user.name,
+                                        email: user.email,
+                                        google_id: user.id,
+                                        foto_url: user.picture
+                                    })
+                                })
+                                    .then(res => res.json())
+                                    .then(data => {
+                                        document.getElementById("mensaje").innerText = data.mensaje;
+                                    })
+                                    .catch(err => {
+                                        console.error("Error al enviar datos:", err);
+                                        document.getElementById("mensaje").innerText = "Error al enviar tu solicitud.";
+                                    });
+                            });
+                    }
+                </script>
+
+
+
+
+                <a href="Login.html" class="login-link">
+                    ¿Ya tienes cuenta? <strong>Inicia sesión aquí</strong>
+                </a>
+            </form>
+
+            <div class="security-info">
+                <small>🔒 Tus datos están seguros con nosotros</small>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('registerForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+
+            if (password !== confirmPassword) {
+                alert('Las contraseñas no coinciden');
+                return;
+            }
+
+            console.log('Registrando nuevo usuario...');
+        });
+    </script>
+</body>
+
+</html>

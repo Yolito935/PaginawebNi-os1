@@ -1,0 +1,24 @@
+
+Pendiente
+- La pagina primero al entrar pide que pages una la pagina para
+iniciar seccion o registrarte 
+
+- Puedes entrar pero solo por 10 min
+
+-si pagas podras iniciar seccion o registrarte 
+
+
+
+
+- ya pagado todo podras registrarte ala cuenta 
+
+- al registrarte o con google primero es esperar a que administrador 
+acepte la peticion para darse de alta 
+
+-Guardandasoe al darse de alta en la base de datos
+
+-al ser aceptado ya puedes iniciar seccion pones tus datos y puedes
+interactuar con la pagina 
+
+
+

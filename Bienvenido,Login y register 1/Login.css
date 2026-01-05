@@ -1,0 +1,464 @@
+/* Reset y estilos base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Nunito', sans-serif;
+    background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    position: relative;
+    overflow-x: hidden;
+}
+
+.login-container {
+    position: relative;
+    width: 100%;
+    max-width: 420px;
+    perspective: 1000px;
+    z-index: 10.;
+}
+
+.login-card {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(15px);
+    border-radius: 25px;
+    padding: 45px 35px;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    transform-style: preserve-3d;
+    transition: transform 0.3s ease;
+}
+
+.login-card:hover {
+    transform: translateY(-5px) rotateX(2deg);
+}
+
+.login-header {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.logo-placeholder {
+    width: 85px;
+    height: 85px;
+    background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    font-size: 2.8rem;
+    box-shadow: 0 15px 30px rgba(168, 237, 234, 0.3);
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0) scale(1); }
+    40% { transform: translateY(-10px) scale(1.1); }
+    60% { transform: translateY(-5px) scale(1.05); }
+}
+
+.login-title {
+    font-family: 'Fredoka One', cursive;
+    color: #333;
+    font-size: 2.2rem;
+    margin-bottom: 8px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    animation: colorChange 3s infinite alternate;
+}
+
+@keyframes colorChange {
+    0% { color: #333; }
+    25% { color: #555; }
+    50% { color: #222; }
+    75% { color: #444; }
+    100% { color: #333; }
+}
+
+.login-subtitle {
+    color: #666;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 25px;
+    font-family: 'Nunito', sans-serif;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.input-group {
+    margin-bottom: 28px;
+    position: relative;
+}
+
+.input-label {
+    display: block;
+    margin-bottom: 10px;
+    color: #333;
+    font-weight: 700;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-family: 'Nunito', sans-serif;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.input-icon {
+    position: absolute;
+    left: 18px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2;
+    font-size: 1.4rem;
+    color: #4ecdc4;
+    animation: iconFloat 3s infinite;
+}
+
+@keyframes iconFloat {
+    0%, 100% { transform: translateY(-50%) rotate(0deg); }
+    25% { transform: translateY(-55%) rotate(5deg); }
+    50% { transform: translateY(-45%) rotate(-5deg); }
+    75% { transform: translateY(-50%) rotate(0deg); }
+}
+
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 16px 16px 16px 55px;
+    border: 3px solid #e0f7fa;
+    border-radius: 15px;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    background: #f0ffff;
+    font-family: 'Nunito', sans-serif;
+    color: #333;
+    font-weight: 600;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+input:focus {
+    outline: none;
+    border-color: #4ecdc4;
+    box-shadow: 0 0 0 4px rgba(78, 205, 196, 0.2), 0 5px 15px rgba(78, 205, 196, 0.1);
+    background: white;
+}
+
+input::placeholder {
+    color: #4ecdc4;
+    font-style: italic;
+    font-family: 'Nunito', sans-serif;
+    opacity: 0.8;
+}
+
+.form-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    font-family: 'Nunito', sans-serif;
+}
+
+.checkbox-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #333;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 0.95rem;
+}
+
+.checkbox-wrapper input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    accent-color: #4ecdc4;
+}
+
+.checkmark {
+    width: 18px;
+    height: 18px;
+    border: 2px solid #4ecdc4;
+    border-radius: 4px;
+    margin-right: 8px;
+    display: inline-block;
+}
+
+.forgot-password {
+    color: #4ecdc4;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.95rem;
+    transition: color 0.3s ease;
+}
+
+.forgot-password:hover {
+    color: #44a08d;
+    text-decoration: underline;
+}
+
+.login-button {
+    width: 100%;
+    padding: 18px;
+    background: linear-gradient(135deg, #4ecdc4 0%, #44a08d 100%);
+    color: white;
+    border: none;
+    border-radius: 15px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 10px;
+    position: relative;
+    overflow: hidden;
+    font-family: 'Nunito', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 10px 25px rgba(78, 205, 196, 0.3);
+}
+
+.login-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 30px rgba(78, 205, 196, 0.4);
+    background: linear-gradient(135deg, #44a08d 0%, #4ecdc4 100%);
+}
+
+.button-text {
+    position: relative;
+    z-index: 2;
+}
+
+.button-icon {
+    margin-left: 10px;
+    animation: slideIn 0.6s ease;
+}
+
+@keyframes slideIn {
+    0% { transform: translateX(-12px); opacity: 0; }
+    100% { transform: translateX(0); opacity: 1; }
+}
+
+.divider {
+    text-align: center;
+    margin: 30px 0;
+    position: relative;
+    color: #333;
+    font-weight: 700;
+    font-family: 'Nunito', sans-serif;
+    font-size: 0.9rem;
+}
+
+.divider::before,
+.divider::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 35%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #333, transparent);
+}
+
+.divider::before {
+    left: 0;
+}
+
+.divider::after {
+    right: 0;
+}
+
+.register-link {
+    display: block;
+    text-align: center;
+    color: #44a08d;
+    text-decoration: none;
+    font-weight: 700;
+    margin-top: 25px;
+    padding: 14px;
+    border: 3px solid #e0f7fa;
+    border-radius: 15px;
+    transition: all 0.3s ease;
+    font-family: 'Nunito', sans-serif;
+    font-size: 1.05rem;
+    background: linear-gradient(135deg, #f0ffff 0%, #e0ffff 100%);
+}
+
+.register-link:hover {
+    background: linear-gradient(135deg, #e0ffff 0%, #d0f0f0 100%);
+    border-color: #4ecdc4;
+    color: #4ecdc4;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(78, 205, 196, 0.2);
+}
+
+.security-info {
+    text-align: center;
+    margin-top: 25px;
+    padding-top: 25px;
+    border-top: 2px dashed #e0f7fa;
+    color: #4ecdc4;
+    font-weight: 600;
+    font-family: 'Nunito', sans-serif;
+    font-size: 0.9rem;
+}
+
+/* Elementos de fondo animados */
+.background-decoration {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Animales esparcidos */
+.animal {
+    position: absolute;
+    font-size: 2.5rem;
+    opacity: 0.7;
+    animation: floatAnimal 6s ease-in-out infinite;
+}
+
+.animal-lion {
+    top: 10%;
+    left: 5%;
+    animation-delay: 0s;
+}
+
+.animal-elephant {
+    bottom: 10%;
+    right: 5%;
+    animation-delay: 2s;
+}
+
+.animal-giraffe {
+    top: 60%;
+    left: 15%;
+    animation-delay: 4s;
+}
+
+.animal-bear {
+    top: 40%;
+    right: 20%;
+    animation-delay: 6s;
+}
+
+.animal-rabbit {
+    bottom: 25%;
+    left: 25%;
+    animation-delay: 8s;
+}
+
+@keyframes floatAnimal {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-10px) rotate(5deg); }
+}
+
+/* Letras animadas */
+.letter {
+    position: absolute;
+    font-size: 3rem;
+    color: rgba(255, 255, 255, 0.8);
+    animation: floatLetter 8s ease-in-out infinite;
+}
+
+.letter-a {
+    top: 20%;
+    left: 10%;
+    animation-delay: 0s;
+}
+
+.letter-b {
+    top: 50%;
+    right: 15%;
+    animation-delay: 3s;
+}
+
+.letter-c {
+    bottom: 20%;
+    left: 20%;
+    animation-delay: 6s;
+}
+
+@keyframes floatLetter {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-15px) rotate(10deg); }
+}
+
+/* Libros y lápices */
+.book {
+    position: absolute;
+    font-size: 2.5rem;
+    color: rgba(255, 255, 255, 0.7);
+    animation: spinBook 10s linear infinite;
+}
+
+.book:nth-child(1) {
+    top: 15%;
+    right: 10%;
+    animation-delay: 0s;
+}
+
+.book:nth-child(2) {
+    bottom: 15%;
+    left: 10%;
+    animation-delay: 5s;
+}
+
+@keyframes spinBook {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.pencil {
+    position: absolute;
+    font-size: 2rem;
+    color: rgba(255, 255, 255, 0.7);
+    animation: bouncePencil 4s ease-in-out infinite;
+}
+
+.pencil:nth-child(1) {
+    top: 30%;
+    left: 5%;
+    animation-delay: 0s;
+}
+
+.pencil:nth-child(2) {
+    bottom: 30%;
+    right: 5%;
+    animation-delay: 2s;
+}
+
+@keyframes bouncePencil {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-10px) rotate(15deg); }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .login-card {
+        padding: 35px 20px;
+        margin: 10px;
+    }
+    
+    .login-title {
+        font-size: 1.8rem;
+    }
+    
+    .form-options {
+        flex-direction: column;
+        gap: 15px;
+        align-items: flex-start;
+    }
+}

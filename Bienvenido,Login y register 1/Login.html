@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar Sesión - Mundo de Lectura</title>
+    <link rel="stylesheet" href="Login.css">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    
+    <!-- Elementos de fondo animados -->
+    <div class="background-decoration">
+        <div class="animal animal-lion">🦁</div>
+        <div class="animal animal-elephant">🐘</div>
+        <div class="animal animal-giraffe">🦒</div>
+        <div class="animal animal-bear">🐻</div>
+        <div class="animal animal-rabbit">🐰</div>
+        <div class="letter letter-a">A</div>
+        <div class="letter letter-b">B</div>
+        <div class="letter letter-c">C</div>
+        <div class="book">📖</div>
+        <div class="pencil">✏️</div>
+    </div>
+
+    <div class="login-container">
+        <div class="login-card">
+            <div class="login-header">
+                <div class="logo-placeholder">
+                    <span class="logo-icon">📚</span>
+                </div>
+                <h2 class="login-title">¡Hola de Nuevo!</h2>
+                <p class="login-subtitle">Ingresa a tu mundo de aprendizaje</p>
+            </div>
+            
+            <form class="login-form" id="loginForm">
+                <div class="input-group">
+                    <label for="email" class="input-label">Correo Electrónico</label>
+                    <div class="input-wrapper">
+                        <span class="input-icon">📧</span>
+                        <input 
+                            type="email" 
+                            id="email" 
+                            name="email" 
+                            placeholder="ejemplo@email.com" 
+                            required
+                            autocomplete="email"
+                        >
+                    </div>
+                </div>
+                
+                <div class="input-group">
+                    <label for="password" class="input-label">Contraseña</label>
+                    <div class="input-wrapper">
+                        <span class="input-icon">🔒</span>
+                        <input 
+                            type="password" 
+                            id="password" 
+                            name="password" 
+                            placeholder="••••••••" 
+                            required
+                            autocomplete="current-password"
+                        >
+                    </div>
+                </div>
+                
+                <div class="form-options">
+                    <label class="checkbox-wrapper">
+                        <input type="checkbox" id="remember" name="remember">
+                        <span class="checkmark"></span>
+                        Recordarme
+                    </label>
+                    <a href="#" class="forgot-password">¿Olvidaste tu contraseña?</a>
+                </div>
+                
+                <button type="submit" class="login-button">
+                    <span class="button-text">Iniciar Sesión</span>
+                    <span class="button-icon">👉</span>
+                </button>
+                
+                <div class="divider">
+                    <span>o</span>
+                </div>
+                
+                <button type="button" class="register-link" onclick="window.location.href='Register.html'">
+                    ¿No tienes cuenta? <strong>Regístrate aquí</strong>
+                </button>
+            </form>
+            
+            <div class="security-info">
+                <small>🔒 Tus datos están seguros con nosotros</small>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            console.log('Intentando iniciar sesión...');
+        });
+    </script>
+</body>
+</html>
