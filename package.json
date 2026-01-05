@@ -1,11 +1,34 @@
 {
   "dependencies": {
     "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
     "express": "^5.2.1",
     "node": "^24.12.0",
     "node.js": "^0.0.1-security",
     "nodemailer": "^7.0.12",
     "pg": "^8.16.3",
     "server.js": "^1.0.0"
+  },
+  "name": "paginawebni-os-master",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://%3C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%3E@github.com/Yolito935/PaginawebNI-os1.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Yolito935/PaginawebNI-os1/issues"
+  },
+  "homepage": "https://github.com/Yolito935/PaginawebNI-os1#readme",
+  "devDependencies": {
+    "nodemon": "^3.1.11"
   }
 }
