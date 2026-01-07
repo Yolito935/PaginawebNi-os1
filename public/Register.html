@@ -80,11 +80,17 @@
                             required minlength="6">
                     </div>
                 </div>
+
+
+
+                <input type="tel" name="phone" ...>
                 
                 <button type="submit" class="register-button">
                     <span class="button-text">Crear Cuenta</span>
                     <span class="button-icon">✨</span>
                 </button>
+
+                </form>
 
                 <div class="divider">
                     <span>o</span>
@@ -98,12 +104,56 @@
       Registrarse con Google
     </button>
 
+<script>
+    document.getElementById('registerForm').onsubmit = async (e) => {
+      e.preventDefault();
+      const formData = new FormData(e.target);
+      const data = Object.fromEntries(formData);
+
+      const res = await fetch('http://localhost:3000/api/register-manual', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      });
+
+      if (res.ok) {
+        alert('¡Registro enviado! Revisa tu correo para más información.');
+        window.location.href = 'espera.html';
+      } else {
+        alert('Error al registrar. Intenta de nuevo.');
+      }
+    };
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     <script src="https://accounts.google.com/gsi/client" async defer></script>
 
 
     <div id="g_id_onload"
-     data-client_id="613829731258-3fcu3mccadet82f5kos22efvdu7aqp0m.apps.googleusercontent.com"
+     data-client_id="613829731258-t5jf2sqe30sfqdr9f5lcenpforup6054.apps.googleusercontent.com"
      data-login_uri="http://localhost:3000/api/google-callback"
      data-auto_prompt="false">
 </div>
